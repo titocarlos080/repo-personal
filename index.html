@@ -8,26 +8,42 @@
     <link href="css/styles.css" rel="stylesheet" />
 </head>
 
-
-
 <body>
+    <canvas id="code-rain"></canvas>
     <main class="container">
-
         <!-- Profile Section -->
-        <div class=" d-flex flex-wrap">
 
-            <div class="card fade-in">
-                <div class="card text-center" >
-                    <img src="./assets/profile.png" alt="Profile Picture" class="profile-image">
-                    <h2>Full Stack Developer</h2>
-                    <p>Welcome to my portfolio. Explore my projects, skills, and professional experience in web
-                        development.</p>
-                </div>
-            </div>
-            <div class="card fade-in">
-                <img src="./assets/animacion.gif" alt=""  >
-            </div>
 
+        <div class="profile-section d-flex">
+            <img src="./assets/profile.png" alt="Profile Picture" class="profile-image">
+            <div class="profile-content">
+                <h2>Full Stack Developer</h2>
+                <p>Welcome to my portfolio. Explore my projects, skills, and professional experience in web development.
+                </p>
+            </div>
+            <img src="./assets/animacion.gif" alt="Animation" class="animation-image">
+            
+            
+            
+        </div>
+         
+
+
+
+        <div class="card console">
+            <div class="console-header">
+                <span class="dot red"></span>
+                <span class="dot yellow"></span>
+                <span class="dot green"></span>
+            </div>
+            <div class="console-body" id="console-body">
+                <p class="console-line"><span class="typewriter-text" id="typewriter">TitoCarlos@Portfolio:~$ Welcome to
+                        my interactive portfolio! type "help"</span></p>
+            </div>
+            <div class="console-input">
+                <span>TitoCarlos@Portfolio:~$</span>
+                <input type="text" id="console-input" autofocus>
+            </div>
         </div>
 
 
@@ -38,6 +54,8 @@
                 with modern technologies. I have a strong passion for developing efficient solutions and constantly
                 strive to enhance my skills and expertise in both front-end and back-end development.</p>
         </div>
+
+        <!-- Technologies Section -->
         <div class="card fade-in">
             <h2>Tecnologías</h2>
             <ul class="technologies-list"></ul>
@@ -54,18 +72,18 @@
             <h2>Contact</h2>
             <p>Feel free to get in touch:</p>
             <ul>
-                <li><i class="bi bi-envelope-fill"></i> titocarlos080@gmail.com</li>
-                <li><i class="bi bi-phone-fill"></i> +591 72465939</li>
-                <li><i class="bi bi-linkedin"></i> <a href="https://linkedin.com/in/yourprofile">LinkedIn</a></li>
-                <li><i class="bi bi-github"></i> <a href="https://github.com/titocarlos080">GitHub</a></li>
+                <li><i class="fas fa-envelope"></i> titocarlos080@gmail.com</li>
+                <li><i class="fas fa-phone"></i> +591 72465939</li>
+                <li><i class="fab fa-linkedin"></i> <a href="https://linkedin.com/in/yourprofile">LinkedIn</a></li>
+                <li><i class="fab fa-github"></i> <a href="https://github.com/titocarlos080">GitHub</a></li>
             </ul>
         </div>
+
 
         <!-- Footer -->
         <div class="card-footer text-center">
             &copy; 2024 Tito Carlos
         </div>
-
     </main>
     <script src="./js/scripts.js"></script>
 </body>
