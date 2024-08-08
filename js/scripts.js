@@ -1,6 +1,47 @@
+
+// scripts.js
+
+// Función para cargar y renderizar datos desde un archivo JSON
+function loadPortfolioData() {
+    
+    fetch('/js/data.json')
+        .then(response => response.json())
+        .then(data => {
+            console.log(data);
+            
+            const technologiesList = document.querySelector('.technologies-list');
+            const projectsList = document.querySelector('.projects-list');
+
+            // Renderizar tecnologías
+            data.technologies.forEach(tech => {
+                const techItem = document.createElement('li');
+                techItem.innerHTML = `
+                    <h3>${tech.name}</h3>
+                    <p>${tech.description}</p>
+                `;
+                technologiesList.appendChild(techItem);
+            });
+
+            // Renderizar proyectos
+            data.projects.forEach(project => {
+                const projectItem = document.createElement('li');
+                projectItem.innerHTML = `
+                    <h3>${project.title}</h3>
+                    <p>${project.description}</p>
+                `;
+                projectsList.appendChild(projectItem);
+            });
+        })
+        .catch(error => console.error('Error loading data:', error));
+}
+
+ 
+
+
 document.addEventListener("DOMContentLoaded", () => {
     // Call the function to start capturing the pointer position
 
+    loadPortfolioData();
 
 })
 

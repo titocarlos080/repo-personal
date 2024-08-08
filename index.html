@@ -8,182 +8,45 @@
     <link href="css/styles.css" rel="stylesheet" />
 </head>
 
-<style>
-    body {
-        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        background-color: #0c0c1f;
-        color: #fff;
-        margin: 0;
-        padding: 0;
-    }
 
-    .container {
-        max-width: 1200px;
-        margin: 0 auto;
-        padding: 20px;
-    }
-
-    .card {
-        background-color: #1c1c2e;
-        border-radius: 15px;
-        margin-bottom: 20px;
-        padding: 20px;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-        transition: transform 0.2s ease-in-out;
-    }
-
-    .card:hover {
-        transform: translateY(-5px);
-    }
-
-    h2 {
-        font-weight: 600;
-        color: #00aaff;
-        margin-bottom: 10px;
-    }
-
-    h3 {
-        font-weight: 600;
-        margin-bottom: 10px;
-        color: #aab9d0;
-    }
-
-    .profile-image {
-        border-radius: 50%;
-        border: 5px solid #00aaff;
-        width: 160px;
-        height: 160px;
-        margin-bottom: 15px;
-        transition: box-shadow 0.3s ease-in-out;
-    }
-
-    .profile-image:hover {
-        box-shadow: 0 0 15px rgba(0, 123, 255, 0.5);
-    }
-
-    .fade-in {
-        animation: fadeIn 1s ease-in-out;
-    }
-
-    @keyframes fadeIn {
-        from {
-            opacity: 0;
-        }
-
-        to {
-            opacity: 1;
-        }
-    }
-
-    .projects-list,
-    .technologies-list {
-        list-style: none;
-        padding: 0;
-        margin: 0;
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-between;
-    }
-
-    .projects-list li,
-    .technologies-list li {
-        background-color: #292940;
-        border-radius: 10px;
-        margin: 10px;
-        padding: 15px;
-        flex-basis: 30%;
-        min-width: 250px;
-        text-align: center;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
-        transition: background-color 0.3s ease-in-out;
-    }
-
-    .projects-list li:hover,
-    .technologies-list li:hover {
-        background-color: #35354e;
-    }
-
-    a {
-        color: #00aaff;
-        text-decoration: none;
-    }
-
-    a:hover {
-        text-decoration: underline;
-    }
-
-    .card-footer {
-        font-size: 14px;
-        color: #ccc;
-        background-color: #0c0c1f;
-        border-top: 1px solid #292940;
-        padding: 10px;
-        border-radius: 0 0 15px 15px;
-    }
-</style>
 
 <body>
     <main class="container">
 
         <!-- Profile Section -->
-         <div class=" d-flex flex-wrap">
+        <div class=" d-flex flex-wrap">
 
-        <div class="card fade-in">
-            <div class="text-center">
-                <img src="./assets/profile.png" alt="Profile Picture" class="profile-image">
-                <h2>Full Stack Developer</h2>
-                <p>Welcome to my portfolio. Explore my projects, skills, and professional experience in web development.</p>
+            <div class="card fade-in">
+                <div class="card text-center" >
+                    <img src="./assets/profile.png" alt="Profile Picture" class="profile-image">
+                    <h2>Full Stack Developer</h2>
+                    <p>Welcome to my portfolio. Explore my projects, skills, and professional experience in web
+                        development.</p>
+                </div>
             </div>
-        </div>
-        <div class="card fade-in">
-            <img src="./assets/animacion.gif" alt="">
-        </div>
+            <div class="card fade-in">
+                <img src="./assets/animacion.gif" alt=""  >
+            </div>
 
-    </div>
+        </div>
 
 
         <!-- About Me Section -->
         <div class="card fade-in">
             <h2>About Me</h2>
-            <p>I am Tito Carlos, a dedicated Full Stack Developer specializing in building scalable web applications with modern technologies. I have a strong passion for developing efficient solutions and constantly strive to enhance my skills and expertise in both front-end and back-end development.</p>
+            <p>I am Tito Carlos, a dedicated Full Stack Developer specializing in building scalable web applications
+                with modern technologies. I have a strong passion for developing efficient solutions and constantly
+                strive to enhance my skills and expertise in both front-end and back-end development.</p>
         </div>
-
-        <!-- Technologies Section -->
         <div class="card fade-in">
             <h2>Tecnologías</h2>
-            <ul class="technologies-list">
-                <li>
-                    <h3>Java</h3>
-                    <p>Expertise in building robust and scalable applications using Java technologies.</p>
-                </li>
-                <li>
-                    <h3>Laravel</h3>
-                    <p>Experience in developing full-featured web applications with Laravel.</p>
-                </li>
-                <li>
-                    <h3>SQL</h3>
-                    <p>Proficient in designing and managing relational databases using SQL.</p>
-                </li>
-            </ul>
+            <ul class="technologies-list"></ul>
         </div>
 
         <!-- Projects Section -->
         <div class="card fade-in">
             <h2>Projects</h2>
-            <ul class="projects-list">
-                <li>
-                    <h3>Project 1</h3>
-                    <p>Detailed description of Project 1. Technologies used: HTML, CSS, JavaScript, and more.</p>
-                </li>
-                <li>
-                    <h3>Project 2</h3>
-                    <p>Detailed description of Project 2. Technologies used: HTML, CSS, JavaScript, and more.</p>
-                </li>
-                <li>
-                    <h3>Project 3</h3>
-                    <p>Detailed description of Project 3. Technologies used: HTML, CSS, JavaScript, and more.</p>
-                </li>
-            </ul>
+            <ul class="projects-list"></ul>
         </div>
 
         <!-- Contact Section -->
@@ -204,6 +67,7 @@
         </div>
 
     </main>
+    <script src="./js/scripts.js"></script>
 </body>
 
 </html>

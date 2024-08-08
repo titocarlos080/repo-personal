@@ -1,0 +1,30 @@
+{
+    "technologies": [
+        {
+            "name": "Java",
+            "description": "Expertise in building robust and scalable applications using Java technologies."
+        },
+        {
+            "name": "Laravel",
+            "description": "Experience in developing full-featured web applications with Laravel."
+        },
+        {
+            "name": "SQL",
+            "description": "Proficient in designing and managing relational databases using SQL."
+        }
+    ],
+        "projects": [
+            {
+                "title": "Project 1",
+                "description": "Detailed description of Project 1. Technologies used: HTML, CSS, JavaScript, and more."
+            },
+            {
+                "title": "Project 2",
+                "description": "Detailed description of Project 2. Technologies used: HTML, CSS, JavaScript, and more."
+            },
+            {
+                "title": "Project 3",
+                "description": "Detailed description of Project 3. Technologies used: HTML, CSS, JavaScript, and more."
+            }
+        ]
+}
