@@ -205,7 +205,7 @@ a:hover {
 .card-footer {
   font-size: 14px;
   color: #ccc;
-  background-color: #0c0c1f;
+  background: transparent;
   border-top: 1px solid #292940;
   padding: 10px;
   border-radius: 0 0 15px 15px;
