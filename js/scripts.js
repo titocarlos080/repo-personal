@@ -77,6 +77,10 @@ function loadPortfolioData() {
                 projectItem.innerHTML = `
                     <h3>${project.title}</h3>
                     <p>${project.description}</p>
+                     <div class="project-links">
+                ${project.git ? `<a href="${project.git}" target="_blank"><i class="fab fa-github"></i> GitHub</a>` : ''}
+                ${project.web_site ? `<a href="${project.web_site}" target="_blank"><i class="fas fa-globe"></i> Sitio Web</a>` : ''}
+            </div>
                 `;
                 projectsList.appendChild(projectItem);
             });
@@ -137,7 +141,7 @@ function lluvia_cod() {
 
 document.addEventListener("DOMContentLoaded", () => {
     loadPortfolioData();
-    lluvia_cod();
+   // lluvia_cod();
 
 })
 

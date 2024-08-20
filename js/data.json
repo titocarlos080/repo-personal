@@ -2,29 +2,40 @@
     "technologies": [
         {
             "name": "Java",
-            "description": "Expertise in building robust and scalable applications using Java technologies."
+            "description": "Extensive expertise in developing robust and scalable enterprise-level applications using Java. Proficient in utilizing frameworks like Spring and Hibernate to create high-performance backend services, as well as in building microservices and RESTful APIs."
         },
         {
             "name": "Laravel",
-            "description": "Experience in developing full-featured web applications with Laravel."
+            "description": "Proficient in building full-featured web applications with Laravel, leveraging its elegant syntax and powerful tools to develop secure and maintainable codebases. Experienced in implementing MVC architecture, RESTful routing, and integrating third-party services."
         },
         {
             "name": "SQL",
-            "description": "Proficient in designing and managing relational databases using SQL."
+            "description": "Skilled in designing, optimizing, and managing relational databases using SQL. Capable of writing complex queries, stored procedures, and triggers to ensure data integrity and performance. Experienced in working with various SQL databases like MySQL, PostgreSQL, and SQL Server."
+        },
+        {
+            "name": "ETL",
+            "description": "Expertise in designing and implementing ETL processes to extract data from various sources, transform it according to business requirements, and load it into target systems. Proficient in using ETL tools such as Talend, Apache NiFi, or custom scripts to ensure efficient data flow and accuracy."
         }
     ],
-        "projects": [
-            {
-                "title": "Project 1",
-                "description": "Detailed description of Project 1. Technologies used: HTML, CSS, JavaScript, and more."
-            },
-            {
-                "title": "Project 2",
-                "description": "Detailed description of Project 2. Technologies used: HTML, CSS, JavaScript, and more."
-            },
-            {
-                "title": "Project 3",
-                "description": "Detailed description of Project 3. Technologies used: HTML, CSS, JavaScript, and more."
-            }
-        ]
+     "projects": [
+    {
+        "title": "Software de Gestión de Inventarios",
+        "description": "Developed a comprehensive inventory management system to streamline the tracking, ordering, and stocking of products. The system includes features for real-time inventory updates, automated reorder alerts, and detailed reporting. Technologies used: Java, Spring Boot, MySQL, and Angular.",
+        "git": "sd",
+        "web_site": "sd"
+    },
+    {
+        "title": "Software de Gestión Administrativa de Colegio",
+        "description": "Created an administrative management system for schools that handles student enrollments, course scheduling, and staff management. The platform supports multiple user roles with varying levels of access and integrates with third-party services for enhanced functionality. Technologies used: Laravel, MySQL, JavaScript, and Bootstrap.",
+        "git": "https://github.com/titocarlos080/eta",
+        "web_site": "https://github.com/titocarlos080/eta"
+    },
+    {
+        "title": "Sistema de Facturación Electrónica SIAT",
+        "description": "Implemented an electronic invoicing system compliant with local tax regulations, enabling businesses to generate and submit invoices digitally. The system supports integration with SIAT (Servicio de Impuestos Nacionales) and ensures secure data transmission. Technologies used: PHP, Laravel, JavaScript, and RESTful APIs.",
+        "git": "",
+        "web_site": ""
+    }
+]
+
 }
