@@ -3,97 +3,95 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>3D Code Rain Background</title>
-    <style>
-        body { margin: 0; overflow: hidden; }
-        canvas { display: block; }
-        .content {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 1; /* Ensure this content is on top of the 3D background */
-        }
-    </style>
+    <title>Three.js Portfolio - Camera Follow Mouse with Text</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://threejs.org/examples/jsm/loaders/FontLoader.js"></script>
+    <script src="https://threejs.org/examples/jsm/geometries/TextGeometry.js"></script>
 </head>
 <body>
-    <div class="content">
-        <!-- Your content goes here -->
-    </div>
-     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-
-    
-
-     <script>
-        // Set up scene, camera, and renderer
+    <script>
+        // Inicialización de la escena
         const scene = new THREE.Scene();
         const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
         const renderer = new THREE.WebGLRenderer();
         renderer.setSize(window.innerWidth, window.innerHeight);
         document.body.appendChild(renderer.domElement);
 
-        // Add ambient light
-        const ambientLight = new THREE.AmbientLight(0x404040); // Soft white light
-        scene.add(ambientLight);
+        // Crear el plano que representará la calle
+        const streetGeometry = new THREE.PlaneGeometry(50, 200);
+        const streetMaterial = new THREE.MeshBasicMaterial({ color: 0x333333 });
+        const street = new THREE.Mesh(streetGeometry, streetMaterial);
+        street.rotation.x = -Math.PI / 2;
+        scene.add(street);
 
-        // Add directional light
-        const directionalLight = new THREE.DirectionalLight(0xffffff, 0.5);
-        directionalLight.position.set(1, 1, 1).normalize();
-        scene.add(directionalLight);
-
-        // Load font and create text geometry
-        const loader = new THREE.FontLoader();
-         
-
-       createCodeRain();
-       
-
-        function createCodeRain() {
-            const numDrops = 500;
-            const textMaterial = new THREE.MeshBasicMaterial({ color: 0x00ff00 });
-
-            for (let i = 0; i < numDrops; i++) {
-                const textGeometry = new THREE.TextGeometry('0', { 
-                    font: font,
-                    size: 10,
-                    height: 1
-                });
-                const textMesh = new THREE.Mesh(textGeometry, textMaterial);
-
-                textMesh.position.set(
-                    Math.random() * 200 - 100,
-                    Math.random() * 200 - 100,
-                    Math.random() * 200 - 100
-                );
-                
-                textMesh.rotation.x = Math.random() * Math.PI;
-                textMesh.rotation.y = Math.random() * Math.PI;
-
-                scene.add(textMesh);
-            }
+        // Función para crear una casa (cubo)
+        function createHouse(x, z, isProject = false) {
+            const geometry = new THREE.BoxGeometry(2, 2, 2);
+            const material = new THREE.MeshBasicMaterial({ color: isProject ? 0x00ff00 : 0x888888 });
+            const house = new THREE.Mesh(geometry, material);
+            house.position.set(x, 1, z);
+            house.userData.isProject = isProject;  // Marcar si es un proyecto
+            scene.add(house);
         }
 
-        camera.position.z = 100;
+        // Crear las casas en la calle
+        const spacing = 10;
+        for (let i = 0; i < 20; i++) {
+            const z = i * spacing - 100;  // Posición a lo largo de la calle
+            const isProject = i % 3 === 0;  // Algunas casas son proyectos
+            createHouse(-5, z, isProject);  // Lado izquierdo
+            createHouse(5, z, isProject);   // Lado derecho
+        }
 
-        // Animation loop
+        // Configuración de la cámara
+        camera.position.set(0, 5, 10);
+        camera.lookAt(0, 0, 0);
+
+        // Cargar la fuente y crear el texto
+        const loader = new THREE.FontLoader();
+        loader.load('https://threejs.org/examples/fonts/helvetiker_regular.typeface.json', function (font) {
+            const textGeometry = new THREE.TextGeometry('Welcome to My Portfolio', {
+                font: font,
+                size: 5,
+                height: 1,
+                curveSegments: 12,
+                bevelEnabled: false
+            });
+            const textMaterial = new THREE.MeshBasicMaterial({ color: 0xffffff });
+            const textMesh = new THREE.Mesh(textGeometry, textMaterial);
+            textMesh.position.set(-25, 10, -150); // Colocar el texto en el fondo
+            scene.add(textMesh);
+        });
+
+        // Animación
         function animate() {
             requestAnimationFrame(animate);
-
-            // Rotate the scene for animation
-            scene.rotation.y += 0.001;
-
             renderer.render(scene, camera);
         }
-
         animate();
 
-        // Handle window resize
-        window.addEventListener('resize', () => {
-            camera.aspect = window.innerWidth / window.innerHeight;
-            camera.updateProjectionMatrix();
-            renderer.setSize(window.innerWidth, window.innerHeight);
-        });
+        // Movimiento de la cámara basado en la posición del mouse
+        function onMouseMove(event) {
+            const x = (event.clientX / window.innerWidth) * 2 - 1; // Normalizar la posición X del mouse
+            const y = -(event.clientY / window.innerHeight) * 2 + 1; // Normalizar la posición Y del mouse
+            
+            const maxRotation = 0.3; // Máxima rotación de la cámara
+            camera.rotation.y = x * maxRotation; // Rotar la cámara en el eje Y
+            camera.rotation.x = y * maxRotation; // Rotar la cámara en el eje X
+
+            // Opcional: desplazar la cámara en el eje Z para simular profundidad
+            camera.position.z = 10 + y * 5; // Ajusta la profundidad según el movimiento del mouse
+        }
+
+  // Movimiento de la cámara basado en el scroll
+  function onScroll(event) {
+    const delta = event.deltaY * 0.05;  // Ajusta la sensibilidad del scroll
+    camera.position.z += delta;
+    camera.position.z = Math.max(-50, Math.min(camera.position.z, 10));  // Limita el rango de movimiento
+}
+window.addEventListener('mousemove', onMouseMove, false);
+window.addEventListener('wheel', onScroll, false);
+
     </script>
 </body>
 </html>
